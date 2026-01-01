@@ -1,0 +1,166 @@
+/* ======== 共通(PC + モバイル) ======== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* メインコンテンツ（共通） */
+main {
+  margin: 0 auto;
+  padding: 20px 16px;
+  box-sizing: border-box;
+}
+
+/* 共通見出し */
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+/* 共通カード（セクション） */
+section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+/* 共通フォーム */
+label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  background: #fafafa;
+  color: #000;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+form > div {
+  margin-bottom: 14px;
+}
+
+/* 共通ボタン */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  border: none;
+  background: #000000;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+
+/* ======== ★ PCレイアウト（横幅広くゆったり） ======== */
+@media (min-width: 900px) {
+
+  main {
+    max-width: 1100px;   /* ← PC横幅（変えてOK） */
+    padding: 32px 24px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+
+  section {
+    padding: 22px 28px;
+    border-radius: 14px;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px 28px;
+  }
+}
+
+
+/* ======== ★ モバイルレイアウト（画面いっぱい） ======== */
+@media (max-width: 899px) {
+
+  main {
+    max-width: 100%;   /* ← モバイルは画面全幅 */
+    padding: 16px 12px;
+  }
+
+  section {
+    padding: 14px 14px;
+    border-radius: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
