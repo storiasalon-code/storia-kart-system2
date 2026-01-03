@@ -1,25 +1,19 @@
-// src/lib/liff.ts
 import liff from "@line/liff";
 
-// index.tsx から呼ばれる名前に合わせる
-export async function initLiff(): Promise<boolean> {
-  try {
-    const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
-    if (!liffId) return false;
+export async function initLiff() {
+  const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
+  if (!liffId) throw new Error("NEXT_PUBLIC_LIFF_ID is missing");
 
-    await liff.init({ liffId });
-    return liff.isInClient();
-  } catch {
-    return false;
+  await liff.init({ liffId });
+
+  // 未ログインならログインに飛ばす（戻ってきたら続行される）
+  if (!liff.isLoggedIn()) {
+    liff.login({ redirectUri: window.location.href });
+    return; // ここで一旦止める
   }
 }
 
-export async function getLineUserId(): Promise<string | null> {
-  try {
-    if (!liff.isLoggedIn()) return null;
-    const profile = await liff.getProfile();
-    return profile.userId ?? null;
-  } catch {
-    return null;
-  }
+export async function getLineUserId() {
+  const profile = await liff.getProfile();
+  return profile.userId; // ここが確実
 }
