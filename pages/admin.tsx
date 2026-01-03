@@ -1,3 +1,5 @@
+import styles from "../styles/premium.module.css";
+
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   addDoc,
@@ -888,6 +890,7 @@ export default function AdminPage() {
         {/* customer mode */}
         {mode === "customer" && selectedCustomer && (
           <div
+            className={styles.adminGrid}
             style={{
               display: "grid",
               gridTemplateColumns: "1.15fr 1fr",

@@ -126,5 +126,25 @@ img {
     gap: 8px !important;
   }
 }
+.adminGrid{
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 14px;
+}
+
+/* iPhoneサイズ：1カラムにする */
+@media (max-width: 600px){
+  .adminGrid{
+    grid-template-columns: 1fr !important;
+  }
+}
+/* カード内が横にはみ出さない */
+* { box-sizing: border-box; }
+img { max-width: 100%; height: auto; }
+
+/* ボタンが並びすぎて潰れるのを防ぐ */
+@media (max-width: 600px){
+  button{ width: 100%; }
+}
 
 /* 以下 .brand, .back, .title... .adminShell, .adminGrid, .field ... .kbd まで全部 */
