@@ -30,5 +30,101 @@
   justify-content:space-between;
   gap:10px;
 }
+/* =========================
+   iPhone / small screen fixes
+   ========================= */
+
+/* まず全体が画面からはみ出さない */
+.page,
+.container,
+.main,
+.grid,
+.card,
+.panel {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* iPhone幅：3カラム → 縦積みにする */
+@media (max-width: 520px) {
+  /* 3カラムの親（今 flex で並んでる想定）を縦に */
+  .layoutRow,
+  .threeCols,
+  .columns,
+  .mainGrid {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  /* 各カラムをフル幅に */
+  .colLeft,
+  .colMid,
+  .colRight,
+  .panelLeft,
+  .panelMid,
+  .panelRight {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* カードの余白を少し詰める */
+  .card,
+  .panel {
+    padding: 12px !important;
+    border-radius: 14px !important;
+  }
+
+  /* ボタンは押しやすく */
+  .btn,
+  button {
+    min-height: 44px;
+  }
+
+  /* 入力欄をフル幅にしてズレ防止 */
+  input,
+  select,
+  textarea {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 16px; /* iOSの勝手な拡大防止 */
+    box-sizing: border-box;
+  }
+
+  /* 2カラム入力（担当者+LINE、メニュー+スタイル、サイド+バック等）を縦積みに */
+  .row2,
+  .twoCols,
+  .fieldRow2 {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* 写真4枚グリッド：2列に */
+  .photoGrid,
+  .imageGrid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* 写真カード内のプレビューは高さを抑える */
+  .photoBox img,
+  .imageBox img {
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* 上部ヘッダー（ログアウトなど）がはみ出す場合の対策 */
+  .topBar,
+  .header {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+}
 
 /* 以下 .brand, .back, .title... .adminShell, .adminGrid, .field ... .kbd まで全部 */
